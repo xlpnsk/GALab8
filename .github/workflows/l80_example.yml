@@ -34,12 +34,12 @@ jobs:
           key: ${{ runner.os }}-multi-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-multi-buildx
-      
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: spg51/lab:lab8
+          images: ${{ secrets.DOCKER_HUB_USERNAME }}/lab8:gh_lab80
 
       - name: Build and push Docker image
         id: docker_build
